@@ -1,7 +1,51 @@
-import "./home.css";
 import { useState, useEffect } from "react";
 import MovieList from "./movie_list";
 import { PlaySquareOutlined } from "@ant-design/icons";
+import styled from "styled-components";
+
+const ListContainer = styled.div`
+  background-image: linear-gradient(
+    to right bottom,
+    #051937,
+    #171228,
+    #190a1a,
+    #12040d,
+    #000000
+  );
+  .movie_list_title {
+    text-align: center;
+    font-size: 2.4rem;
+    color: white;
+    width: 100%;
+    height: 70px;
+    padding-top: 20px;
+  }
+  .movie_list_category {
+    color: white;
+    display: flex;
+    justify-content: center;
+  }
+
+  .movie_list_category .movie_list_category_item {
+    padding-bottom: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 20px;
+    font-weight: bold;
+    height: 70px;
+    /* background-color: red; */
+  }
+  .movie_list_category .movie_list_category_item:hover {
+    font-size: 1.4rem;
+  }
+  .section-2 {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 3px solid gray;
+  }
+`;
 
 function Home() {
   const [loading_2, setLoading_2] = useState(true);
@@ -46,9 +90,9 @@ function Home() {
   };
 
   return (
-    <div className="list_container">
+    <ListContainer>
       {loading_2 ? (
-        <img src="/images/loading2.gif" alt="loading" />
+        <img src="/assets/loading2.gif" alt="loading" />
       ) : (
         <div>
           <div>
@@ -107,7 +151,7 @@ function Home() {
           </div>
         </div>
       )}
-    </div>
+    </ListContainer>
   );
 }
 export default Home;
