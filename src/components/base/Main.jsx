@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import MovieList from "./movie_list";
+import MovieList from "./MovieList";
 import { PlaySquareOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 

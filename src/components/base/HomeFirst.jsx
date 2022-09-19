@@ -71,7 +71,7 @@ const Main = styled.div`
   }
 `;
 
-const Header = () => {
+const HomeFirst = () => {
   const [movie, setMovie] = useState([]);
   const [start, startSetting] = useState(true);
 
@@ -136,4 +136,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomeFirst;

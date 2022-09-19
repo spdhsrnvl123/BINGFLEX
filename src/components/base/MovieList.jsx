@@ -10,9 +10,9 @@ const MainList = styled.div`
 
   .movie_list_img {
     cursor: pointer;
-    border-radius: 30px;
-    box-shadow: 2px 2px 3px 4px rgba(251, 10, 10, 0.631);
-    transition: 0.5s;
+    /* border-radius: 30px; */
+    /* box-shadow: 2px 2px 3px 4px rgba(251, 10, 10, 0.631); */
+    transition: 0.1s;
   }
   .movie_list_img:hover {
     transform: scale(1.05);
