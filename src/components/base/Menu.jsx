@@ -47,7 +47,7 @@ const Logo = styled.div`
 `
 
 const Menu = ()=>{
-
+    
     return(
         <TopCotainer>
         <Container>
@@ -61,7 +61,7 @@ const Menu = ()=>{
             </Content>
             <Content>
                 <Link to={`/login`} style={{fontSize:"20px",marginRight:"10px"}}>Login</Link>
-                <Link style={{fontSize:"20px"}} >Sign Up</Link>
+                <Link to={`/signup`} style={{fontSize:"20px"}} >Sign Up</Link>
             </Content>
         </Container>
         </TopCotainer>

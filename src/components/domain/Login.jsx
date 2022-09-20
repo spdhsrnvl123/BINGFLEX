@@ -24,12 +24,17 @@ const Log = styled.h1`
 `;
 
 const Form = styled.div`
-    background-color: rgba(0,0,0,0.9);
+    /* background-color: rgba(0,0,0,0.9); */
+    background-image: url("./assets/motion.gif");
+    background-repeat: no-repeat;
+    background-size: 180%;
+    background-position: center;
     position: absolute;
     top:50%;
     left:50%;
     width: 400px;
     height: 600px;
+    border-radius: 20px;
     transform: translate(-50%,-50%);
     box-shadow: 0px 0px 10px 7px rgba(0,0,0,0.3);
 `;
@@ -48,6 +53,16 @@ const Button = styled.button`
     font-weight: bold;
 `
 
+const Input = styled.input`
+    width:270px;
+    height:35px;
+    font-size:16px;
+    /* background-color: #2C3A47; */
+    border:0;
+    padding:10px;
+    border-radius:5px;
+`
+
 const Login = ()=>{
     const {register,handleSubmit,formState:{errors}} = useForm()
 
@@ -63,8 +78,7 @@ const Login = ()=>{
                 <Form onSubmit={handleSubmit(onValid)}>
                 <Log>Login</Log>
                 <form style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",marginTop:"30px"}}>
-                    <input 
-                    style={{width:"270px",height:"40px",fontSize:"16px",backgroundColor:"#2C3A47",border:"0",padding:"10px"}}
+                    <Input 
                     {...register("username",{
                         required:"Username is required",
                         pattern : {
@@ -75,9 +89,8 @@ const Login = ()=>{
                     placeholder = "Email address or Phone number"
                     />
                     <span style={{height:"30px",paddingTop:"8px",color:"gray"}}>{errors.username?.message}</span>
-                    <input
+                    <Input
                     type ="password"
-                    style={{width:"270px",height:"40px",fontSize:"16px",backgroundColor:"#2C3A47",border:"0",padding:"10px"}}
                     {...register("password",{
                         required:"write here"
                     })}
@@ -88,10 +101,6 @@ const Login = ()=>{
                 </form>
                     <br />
                     <label style={{marginLeft:"60px",color:"gray"}}><input type="checkbox"/>Save login information</label>
-                    <p>Need help?</p>
-                <p>log in with facebook</p>
-                <p>Not a NetStats member?</p><span>Sign up now</span>
-                <p>This page is protected by Google reCAPTCHA to confirm that you are not a robot.</p><span>자세히 알아보기</span>
                 </Form>
             </Content>
         </Container>
