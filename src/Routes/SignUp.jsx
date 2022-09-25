@@ -23,7 +23,6 @@ const Form = styled.div`
     background-size: 105%;
     background-position: center;
     border-radius: 10px;
-    /* background-position-y : -40px; */
     position: absolute;
     top:50%;
     left:50%;

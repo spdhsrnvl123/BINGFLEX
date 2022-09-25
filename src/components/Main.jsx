@@ -33,7 +33,6 @@ const ListContainer = styled.div`
     padding: 20px;
     font-weight: bold;
     height: 70px;
-    /* background-color: red; */
   }
   .movie_list_category .movie_list_category_item:hover {
     font-size: 1.4rem;

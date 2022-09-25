@@ -41,6 +41,11 @@ const PlayButton = styled.button`
   font-size: 16px;
   border-radius: 20px;
   font-weight: bold;
+  box-shadow: 1px 1px 2px black;
+  cursor: pointer;
+  &:hover{
+    color: #d2dae2;
+  }
 `
 
 const ListButton = styled(PlayButton)`
