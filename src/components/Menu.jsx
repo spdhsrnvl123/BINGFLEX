@@ -1,7 +1,7 @@
 import { Link, useMatch } from "react-router-dom";
 import styled from "styled-components";
-import {UserOutlined,UserAddOutlined} from "@ant-design/icons"
-import {motion} from "framer-motion"
+import { UserOutlined,UserAddOutlined } from "@ant-design/icons"
+import { motion } from "framer-motion"
 import { useState } from "react";
 
 const TopCotainer =styled.div`
@@ -16,7 +16,7 @@ const Container = styled.div`
     /* top:2%; */
     width: 85%;
     z-index: 9999;
-    display:  flex;
+    display: flex;
     justify-content: space-between;
     background-color: rgba(0,0,0,0.4);
     border-bottom-left-radius: 20px;
@@ -28,7 +28,7 @@ const Content = styled.ul`
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: red;   */
+    /* background-color: red;*/
     li{
         font-size: 22px;
         padding: 20px;

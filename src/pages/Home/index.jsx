@@ -1,14 +1,12 @@
 import styled from "styled-components";
 import FirstScene from "../components/FirstScene"
 import ScollDown from "../components/ScrollDown"
-// import Main from "../components/Main"
 import getData from "../api"
 import { useQuery } from "@tanstack/react-query"
-import { motion, useMotionValue,useTransform } from "framer-motion";
-import Main from "../components/Main";
+import { motion } from "framer-motion";
 
 const FirstSection = styled.div`
-    height: 120vh;
+    height: 100vh;
     width:100%;
     background-color: black;
     overflow-x: hidden;
@@ -25,6 +23,7 @@ const Section = styled.div`
     overflow-x: hidden;
     border-top: 10px dotted white;
 `
+
 const Box = styled(motion.div)`
     width:300px;
     height: 300px;
@@ -66,8 +65,6 @@ const Circle4 = styled(Circle)`
 
 const Home = ()=>{
     const { data, isLoading } = useQuery(["movie","nowPlaying"],getData)
-    // const y = useMotionValue(0);
-    // useEffect(()=> x.onChange(latest => console.log(x.get()),[]))
     console.log(data,isLoading)
 
     const rotateVariants = {
@@ -86,7 +83,6 @@ const Home = ()=>{
     }
 
     const moveVariants = {
-        
         click : {
             left:150,
             width: 280,
@@ -117,12 +113,8 @@ const Home = ()=>{
                     <Circle4 variants={moveVariants} whileTap="click2" />
                 </Box>
             </SecondSection>
-            <Section>
-                <Main />
-            </Section>
-            <Section>
-            </Section>
         </>
     )
 }
+
 export default Home;

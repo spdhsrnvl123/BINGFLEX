@@ -1,11 +1,10 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Home from "./Routes/Home";
-import Login from "./Routes/LogIn";
-import SignUp from "./Routes/SignUp";
-import TvShow from "./Routes/TvShows";
-import Application from "./Routes/Application";
-import Map from "./Routes/Map";
-import Menu from "./components/Menu"
+import Home from "./Routes/HOME";
+import Login from "./Routes/LOGIN";
+import SignUp from "./Routes/SIGNUP";
+import TvShow from "./Routes/TVSHOW";
+import Map from "./Routes/MAP";
+import Menu from "../components/Menu"
 
 
 function Router(){
@@ -15,7 +14,6 @@ function Router(){
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/tvshows" element={<TvShow />}></Route>
-                <Route path="/Application" element={<Application />}></Route>
                 <Route path="/Map" element={<Map />}></Route>
                 <Route path="/login" element = {<Login />}></Route>
                 <Route path="/signup" element = {<SignUp />}></Route>

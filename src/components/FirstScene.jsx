@@ -113,13 +113,13 @@ const FirstScene = ()=>{
     <AnimatePresence mode='wait'>
       {scene.map((value,index)=>(
         index === visible ? (
-          <Main 
-          bgColor={value.backgroundImage} 
-          key={index}
-          variants ={slide}
-          initial ="start"
-          animate = "end"
-          exit = "exit"
+          <Main
+            bgColor={value.backgroundImage} 
+            key={index}
+            variants ={slide}
+            initial ="start"
+            animate = "end"
+            exit = "exit"
           >
             <TilteContainer>
               <Title>{value.title}</Title>
@@ -127,7 +127,7 @@ const FirstScene = ()=>{
                 {value.description}
               </TitleDesCription>
               <PlayButton><CaretRightOutlined />WATCH NOW</PlayButton>
-              <ListButton><PlusOutlined />MY LIST</ListButton>
+              <ListButton onClick={()=>alert("The movie has been added to your shopping cart!")}><PlusOutlined />MY LIST</ListButton>
             </TilteContainer>
           </Main>
         ): null

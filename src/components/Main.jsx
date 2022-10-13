@@ -4,14 +4,6 @@ import { PlaySquareOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
 const ListContainer = styled.div`
-  background-image: linear-gradient(
-    to right bottom,
-    #051937,
-    #171228,
-    #190a1a,
-    #12040d,
-    #000000
-  );
   .movie_list_title {
     text-align: center;
     font-size: 2.4rem;
@@ -46,13 +38,14 @@ const ListContainer = styled.div`
   }
 `;
 
-function Home() {
+function Main() {
   const [loading_2, setLoading_2] = useState(true);
   const [lists, setList] = useState([]);
   const [set, setSet] = useState(true);
   const [year, yearSet] = useState(true);
+
+  //비동기함수
   const update_2 = async function () {
-    //비동기함수
     const movieData = await (
       await fetch(
         "https://yts.mx/api/v2/list_movies.json?minimum_rating=8.8&sort_by=year"
@@ -91,7 +84,7 @@ function Home() {
   return (
     <ListContainer>
       {loading_2 ? (
-        <img src="/assets/loading2.gif" alt="loading" />
+        <img style={{width:"100%"}} src="./assets/loading.gif" alt="loading" />
       ) : (
         <div>
           <div>
@@ -136,14 +129,12 @@ function Home() {
                   key={list.id}
                   backgruondImage={list.medium_cover_image}
                   title={list.title}
-                  year={list.year}
                 />
               ) : list.year === year ? (
                 <MovieList
                   key={list.id}
                   backgruondImage={list.medium_cover_image}
                   title={list.title}
-                  year={list.year}
                 />
               ) : null
             )}
@@ -153,4 +144,4 @@ function Home() {
     </ListContainer>
   );
 }
-export default Home;
+export default Main;
