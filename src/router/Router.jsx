@@ -1,16 +1,15 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import Home from "./Routes/HOME";
-import Login from "./Routes/LOGIN";
-import SignUp from "./Routes/SIGNUP";
-import TvShow from "./Routes/TVSHOW";
-import Map from "./Routes/MAP";
-import Menu from "../components/Menu"
-
+import Home from "pages/Home";
+import Login from "pages/Login";
+import SignUp from "pages/Signup";
+import TvShow from "pages/Tvshow";
+import Map from "pages/Map";
+import Header from "components/domain/Header";
 
 function Router(){
     return(
         <BrowserRouter>
-            <Menu />
+            <Header />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
                 <Route path="/tvshows" element={<TvShow />}></Route>
