@@ -1,12 +1,15 @@
 import styled from "styled-components";
 import {useForm} from "react-hook-form"
+import LoginBackground from "assets/image/LoginBackground.jpeg"
+import motion from "assets/image/motion.gif"
+
 
 const Container = styled.div`
     height: 100vh;
 `;
 
 const Content = styled.div`
-    background-image: url("./assets/LoginBackground.jpeg");
+    background-image: url(${LoginBackground});
     background-size: cover;
     background-repeat: no-repeat;
     /* width: 80%; */
@@ -25,7 +28,7 @@ const Log = styled.h1`
 
 const Form = styled.div`
     /* background-color: rgba(0,0,0,0.9); */
-    background-image: url("./assets/motion.gif");
+    background-image: url(${motion});
     background-repeat: no-repeat;
     background-size: 180%;
     background-position: center;

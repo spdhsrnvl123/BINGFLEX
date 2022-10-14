@@ -1,12 +1,14 @@
 import styled from "styled-components";
+import LoginBackground from "assets/image/LoginBackground.jpeg"
+import motion from "assets/image/motion.gif"
+
 
 const Container = styled.div`
     height: 100vh;
 `;
 
-
 const Content = styled.div`
-    background-image: url("./assets/LoginBackground.jpeg");
+    background-image: url(${LoginBackground});
     background-size: cover;
     background-repeat: no-repeat;
     /* width: 80%; */
@@ -18,7 +20,7 @@ const Content = styled.div`
 
 const Form = styled.div`
     /* background-color: rgba(0,0,0,0.9); */
-    background-image: url("./assets/motion.gif");
+    background-image: url(${motion});
     background-repeat: no-repeat;
     background-size: 105%;
     background-position: center;
@@ -70,7 +72,6 @@ const Button = styled.button`
 //React-hook-form없이 State값을 이용하여 회원가입 form구현하기.
 
 const SignUp = ()=>{
-
 
     return(
         <Container>
