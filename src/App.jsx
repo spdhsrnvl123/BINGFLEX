@@ -1,7 +1,7 @@
 // import Header from './components/header'
-import Router from "./Router"
 import { createGlobalStyle } from "styled-components";
 import styled from "styled-components";
+import Router from "./router/Router";
 
 const GlobalStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe,
