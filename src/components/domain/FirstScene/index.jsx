@@ -1,16 +1,19 @@
 import { CaretRightOutlined,PlusOutlined } from '@ant-design/icons';
-import { motion,AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import styled from 'styled-components';
-import InterStellar from "assets/image/InterStellar.jpeg"
-import Avengers from "assets/image/Avengers.jpg"
-import ManOfSteel from "assets/image/ManOfSteel.webp"
-import Thor from "assets/image/Thor.jpeg"
+// import InterStellar from "assets/image/InterStellar.jpeg"
+// import Avengers from "assets/image/Avengers.jpg"
+// import ManOfSteel from "assets/image/ManOfSteel.webp"
+// import Thor from "assets/image/Thor.jpeg"
+import getData from 'lib/api/api';
+import { useQuery } from '@tanstack/react-query';
+import makeImagePath from 'lib/utils/makeImagePath';
 
 
 const Main = styled(motion.div)`  
     height: 100vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2)),url(${props => props.bgColor});
+    background-image : linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(${(props) => props.bgPhoto});
     background-repeat: no-repeat;
     background-size: cover;
 `
@@ -35,7 +38,8 @@ const TilteContainer = styled.div`
 
 const Title = styled.h1`
   position : absolute;
-  font-size : 110px;
+  top:-60px;
+  font-size : 74px;
   text-shadow: 2px -3px 3px black;
 `;
 
@@ -43,21 +47,22 @@ const TitleDesCription = styled.p`
   position: absolute;
   top: 30%;
   left:1.5%;
+  font-size:24px;
   color:#dcdde1;
 `;
 
 const PlayButton = styled.button`
   position:absolute;
   display: flex;
-  top: 53%;
-  left:1.5%;
+  top: 63%;
+  left:0.5%;
   color:white;
   background-color: #f53b57;
   padding:12px;
   border:0;
   font-size: 16px;
   border-radius: 20px;
-  font-weight: bold;
+  /* font-weight: bold; */
   box-shadow: 1px 1px 2px black;
   cursor: pointer;
   &:hover{
@@ -69,86 +74,56 @@ const ListButton = styled(PlayButton)`
   left:23.5%;
 `;
 
-const FirstScene = ()=>{
-  const scene = [
-    {
-      backgroundImage : `${InterStellar}`,
-      title : "INTERSTELLAR",
-      description : "Based on the theory of theoretical physicist Kip Thorne, the film tells the story of a group of explorers through the wormhole about time travel and parallel universe..."
-    },
-    {
-      backgroundImage : `${Avengers}`,
-      title : "Avengers:Endgame",
-      description : "The Avengers, who became the last hope on Earth, only half surviving after Infinity War, risked everything for those who left first!"
-    },
-    {
-      backgroundImage : `${ManOfSteel}`,
-      title : "Man of Steel",
-      description : "Kal-El, born by natural childbirth on the planet Krypton for the first time in hundreds of years, his father Joel tells the council that destruction cannot be avoided due to the instability of the core inside the planet Krypton, and requests the Codex to survive on the new planet, but is taken away by Zod, who caused a coup. do."
-    },
-    {
-      backgroundImage : `${Thor}`,
-      title : "Thor",
-      description : "As the successor of the god world 'Asgard', 'Thor', the god of thunder with powerful power. Thor, who usually possesses a reckless personality, is disqualified as a god for causing a war between the gods and is sent to Earth. The source of power..."
-    }
-  ]
+// const FirstScene = ()=>{
+//   const scene = [
+//     {
+//       backgroundImage : `${InterStellar}`,
+//       title : "INTERSTELLAR",
+//       description : "Based on the theory of theoretical physicist Kip Thorne, the film tells the story of a group of explorers through the wormhole about time travel and parallel universe..."
+//     },
+//     {
+//       backgroundImage : `${Avengers}`,
+//       title : "Avengers:Endgame",
+//       description : "The Avengers, who became the last hope on Earth, only half surviving after Infinity War, risked everything for those who left first!"
+//     },
+//     {
+//       backgroundImage : `${ManOfSteel}`,
+//       title : "Man of Steel",
+//       description : "Kal-El, born by natural childbirth on the planet Krypton for the first time in hundreds of years, his father Joel tells the council that destruction cannot be avoided due to the instability of the core inside the planet Krypton, and requests the Codex to survive on the new planet, but is taken away by Zod, who caused a coup. do."
+//     },
+//     {
+//       backgroundImage : `${Thor}`,
+//       title : "Thor",
+//       description : "As the successor of the god world 'Asgard', 'Thor', the god of thunder with powerful power. Thor, who usually possesses a reckless personality, is disqualified as a god for causing a war between the gods and is sent to Earth. The source of power..."
+//     }
+//   ]
 
-  const slide = {
-    start:{
-      opacity:0.9,
-      scale:1,
-      x:0,
-      transition:{
-        duration:1
-      }
-    },
-    end:{
-      opacity:1,
-      x:0,
-      transition:{
-        duration:4
-      }
-    },
-    exit:{
-      opacity:0,
-      x:-300,
-      transition:{
-        duration:1
-      }
-    }
+  const FirstScene = ()=>{
+    const {isLoading,data} = useQuery(["movie"],getData)
+
+    // console.log(data?.results)
+      
+    return(
+      <>
+          {
+            isLoading ? "Loading" : (
+              <Main
+                bgPhoto = {makeImagePath(data?.results[10].backdrop_path || "")}
+              >
+                <TilteContainer>
+                  <Title>{data?.results[10].title}</Title>
+                  <TitleDesCription>
+                    {data?.results[10].overview}
+                  </TitleDesCription>
+                  <PlayButton><CaretRightOutlined />WATCH NOW</PlayButton>
+                  <ListButton onClick={()=>alert("The movie has been added to your shopping cart!")}><PlusOutlined />MY LIST</ListButton>
+                </TilteContainer>
+              </Main>
+            )
+          }
+      </>
+
+          )
   }
-
-  const [visible,setVisible] = useState(0);
-
-  // setTimeout(()=>{
-  //   setVisible((count)=> (count === 3 ? 0 : count+1))
-  // },6000)
-
-  return(
-    <AnimatePresence mode='wait'>
-      {scene.map((value,index)=>(
-        index === visible ? (
-          <Main
-            bgColor={value.backgroundImage} 
-            key={index}
-            variants ={slide}
-            initial ="start"
-            animate = "end"
-            exit = "exit"
-          >
-            <TilteContainer>
-              <Title>{value.title}</Title>
-              <TitleDesCription>
-                {value.description}
-              </TitleDesCription>
-              <PlayButton><CaretRightOutlined />WATCH NOW</PlayButton>
-              <ListButton onClick={()=>alert("The movie has been added to your shopping cart!")}><PlusOutlined />MY LIST</ListButton>
-            </TilteContainer>
-          </Main>
-        ): null
-      ))}
-    </AnimatePresence>
-  )
-}
 
 export default FirstScene;
