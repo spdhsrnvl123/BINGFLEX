@@ -1,5 +1,6 @@
 import styled, {keyframes} from "styled-components"
 import { motion } from "framer-motion"
+import { useEffect } from "react"
 
 const ScrollDown = ()=>{
     const translateAnimation = keyframes`
@@ -10,9 +11,9 @@ const ScrollDown = ()=>{
         transform: translateY(0px);
     }
     `
-
     const Svg = styled.svg`
         position:absolute;
+        z-index: 99;
         width:50px;
         height: 50px;
         left:0;
@@ -38,7 +39,11 @@ const ScrollDown = ()=>{
     return(
         <Svg
         xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 448 512">
+        viewBox="0 0 448 512"
+        onClick={()=>{
+            window.scrollTo({top:1024,behavior:"smooth"})
+        }}
+        >
         <motion.path
           variants={svg}
           initial="start"
