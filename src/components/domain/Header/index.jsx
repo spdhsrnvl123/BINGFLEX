@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { UserOutlined,UserAddOutlined } from "@ant-design/icons"
 import { motion } from "framer-motion"
 import { useState } from "react";
+import Logo from "components/base/Logo";
 
 const TopCotainer =styled.div`
     display: flex;
@@ -14,13 +15,13 @@ const Container = styled.div`
     font-weight: bold;
     position: fixed;
     /* top:2%; */
-    width: 85%;
+    width: 100%;
     z-index: 9999;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     background-color: rgba(0,0,0,0.4);
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
     box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.443);
 `
 
@@ -43,15 +44,6 @@ const Title = styled.div`
     font-size: 35px;
     display: flex;
     align-items: center;
-`
-
-const Logo = styled.div`
-    background-image: url("./assets/logo.png");
-    background-size: cover;
-    width: 70px;
-    height: 70px;
-    margin-right: -18px;
-    margin-bottom: 7px;
 `
 
 const Item = styled.li`
@@ -115,7 +107,7 @@ const Header = ()=>{
                         <Link to="/tvshows">TV SHOWS{tvshowMatch && <Circle layoutId="circle" />}</Link>
                     </Item>
                     <Item>
-                        <Link to="/application">APP{applicationMatch && <Circle layoutId="circle" />}</Link>
+                        <a href="https://spdhsrnvl123.github.io/BINGFLEX-APP/" target="_blank">APP{applicationMatch && <Circle layoutId="circle" />}</a>
                     </Item>
                     <Item>
                         <Link to="/map">MAP{mapMatch && <Circle layoutId="circle" />}</Link>
