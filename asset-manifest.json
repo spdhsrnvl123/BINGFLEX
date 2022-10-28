@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/BINGFLEX/static/js/main.dd7ccc64.js",
+    "main.js": "/BINGFLEX/static/js/main.93738645.js",
     "static/media/motion.gif": "/BINGFLEX/static/media/motion.19273e482433e06cad34.gif",
     "static/media/seconSection.png": "/BINGFLEX/static/media/seconSection.9b492c2a6fea724abf43.png",
     "static/media/LoginBackground.jpeg": "/BINGFLEX/static/media/LoginBackground.33770dcdc1f579643862.jpeg",
     "static/media/logo.png": "/BINGFLEX/static/media/logo.0b1c978d830aa4a6ea49.png",
     "index.html": "/BINGFLEX/index.html",
-    "main.dd7ccc64.js.map": "/BINGFLEX/static/js/main.dd7ccc64.js.map"
+    "main.93738645.js.map": "/BINGFLEX/static/js/main.93738645.js.map"
   },
   "entrypoints": [
-    "static/js/main.dd7ccc64.js"
+    "static/js/main.93738645.js"
   ]
 }
